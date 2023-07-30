@@ -4,8 +4,9 @@ import { getAuthSession } from "@/lib/auth";
 import { HomeIcon } from "lucide-react";
 import Link from "next/link";
 
-export default async function Home() {
+export const dynamic = "force-dynamic";
 
+export default async function Home() {
   const session = await getAuthSession();
   return (
     <>
