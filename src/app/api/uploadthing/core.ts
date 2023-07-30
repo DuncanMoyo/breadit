@@ -6,6 +6,7 @@ const auth = (req: Request) => ({ id: "fakeId" });
 
 export const ourFileRouter = {
   imageUploader: f({ image: { maxFileSize: "4MB" } })
+    // @ts-ignore
     .middleware(async ({ req }) => {
       const user = await auth(req);
 
@@ -13,8 +14,7 @@ export const ourFileRouter = {
 
       return { userId: user.id };
     })
-    .onUploadComplete(async ({ metadata, file }) => {
-    }),
+    .onUploadComplete(async ({ metadata, file }) => {}),
 } satisfies FileRouter;
 
 export type OurFileRouter = typeof ourFileRouter;

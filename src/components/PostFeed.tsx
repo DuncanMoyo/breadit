@@ -58,6 +58,7 @@ const PostFeed = ({ initialPosts, subredditName }: Props) => {
         }, 0);
 
         const currentVote = post.votes.find(
+          // @ts-ignore
           (vote) => vote.userId === session?.user.id
         );
 

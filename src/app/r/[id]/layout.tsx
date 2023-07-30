@@ -1,4 +1,4 @@
-import { SubscribeLeaveToggle } from "@/components";
+import { SubscribeLeaveToggle, ToFeedButton } from "@/components";
 import { buttonVariants } from "@/components/ui/Button";
 import { getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/db";
@@ -35,6 +35,7 @@ const Layout = async ({
             name: id,
           },
           user: {
+            // @ts-ignore
             id: session.user.id,
           },
         },
@@ -55,7 +56,7 @@ const Layout = async ({
   return (
     <div className="sm:container max-w-7xl mx-auto h-full pt-12">
       <div>
-        {/* TODO: Button to take us back */}
+        <ToFeedButton />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-y-3 md:gap-x-4 py-6">
           <div className="flex flex-col col-span-2 space-y-6">{children}</div>
@@ -81,12 +82,14 @@ const Layout = async ({
                   <div className="text-gray-500">{memberCount}</div>
                 </dd>
               </div>
+              {/* @ts-ignore */}
               {subreddit.creatorId === session?.user.id ? (
                 <div className="flex justify-between gap-x-4 py-3">
                   <p className="text-gray-500">You created this community</p>
                 </div>
               ) : null}
 
+              {/* @ts-ignore */}
               {subreddit.creatorId !== session?.user.id ? (
                 <SubscribeLeaveToggle
                   subredditId={subreddit.id}

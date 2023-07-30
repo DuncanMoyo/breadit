@@ -30,7 +30,6 @@ const CommentsSection = async ({ postId }: Props) => {
     <div className="flex flex-col gap-y-4 mt-4">
       <hr className="w-full h-px my-6" />
       <CreateComment postId={postId} />
-      {/* TODO Create comment */}
       <div className="flex flex-col gap-y-6 mt-4">
         {comments
           .filter((comment) => !comment.replyToId)
@@ -44,6 +43,7 @@ const CommentsSection = async ({ postId }: Props) => {
               0
             );
             const topLevelCommentVote = topLevelComment.votes.find(
+              // @ts-ignore
               (vote) => vote.userId === session?.user.id
             );
 
@@ -68,6 +68,7 @@ const CommentsSection = async ({ postId }: Props) => {
                       return acc;
                     }, 0);
                     const replyVote = reply.votes.find(
+                      // @ts-ignore
                       (vote) => vote.userId === session?.user.id
                     );
                     return (

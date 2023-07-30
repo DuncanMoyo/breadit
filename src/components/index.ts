@@ -20,3 +20,4 @@ export { default as CreateComment } from "./CreateComment";
 export { default as CommentVotes } from "./CommentVotes";
 export { default as SearchBar } from "./SearchBar";
 export { default as UserNameForm } from "./UserNameForm";
+export { default as ToFeedButton } from "./ToFeedButton";

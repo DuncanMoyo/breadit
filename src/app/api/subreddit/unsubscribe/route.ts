@@ -17,6 +17,7 @@ export async function POST(req: Request) {
     const subscriptionExists = await db.subscription.findFirst({
       where: {
         subredditId,
+        // @ts-ignore
         userId: session.user.id,
       },
     });
@@ -32,6 +33,7 @@ export async function POST(req: Request) {
     const subreddit = await db.subreddit.findFirst({
       where: {
         id: subredditId,
+        // @ts-ignore
         creatorId: session.user.id,
       },
     });
@@ -46,6 +48,7 @@ export async function POST(req: Request) {
       where: {
         userId_subredditId: {
           subredditId,
+          // @ts-ignore
           userId: session.user.id,
         },
       },

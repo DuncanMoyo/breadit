@@ -17,6 +17,7 @@ export async function POST(req: Request) {
     const subscriptionExists = await db.subscription.findFirst({
       where: {
         subredditId,
+        // @ts-ignore
         userId: session.user.id,
       },
     });
@@ -30,6 +31,7 @@ export async function POST(req: Request) {
     await db.subscription.create({
       data: {
         subredditId,
+        // @ts-ignore
         userId: session.user.id,
       },
     });
