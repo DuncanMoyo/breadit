@@ -130,7 +130,7 @@ const Editor = ({ subredditId }: Props) => {
     }
   }, [isMounted, initializeEditor]);
 
-  const {mutate: createPost} = useMutation({
+  const { mutate: createPost } = useMutation({
     mutationFn: async ({
       title,
       content,
@@ -188,6 +188,7 @@ const Editor = ({ subredditId }: Props) => {
       >
         <div className="prose prose-stone dark:prose-invert">
           <TextareaAutosize
+            // @ts-ignore
             ref={(e) => {
               titleRef(e);
               // @ts-ignore
