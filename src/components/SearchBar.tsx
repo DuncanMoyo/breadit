@@ -31,20 +31,18 @@ const SearchBar = () => {
   const request = debounce(() => {
     refetch();
   }, 300);
-  const debounceRequest = useCallback(() => {
+  const debounceRequest = useCallback(() => {   
     request();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     setInput("");
-  }, [pathName]);
+  }, [pathName]); 
 
   const {
     data: queryResults,
     refetch,
     isFetched,
-    isFetching,
   } = useQuery({
     queryFn: async () => {
       if (!input) return [];
@@ -62,7 +60,6 @@ const SearchBar = () => {
       className="relative rounded-lg border max-w-lg z-50 overflow-visible"
     >
       <CommandInput
-        isLoading={isFetching}
         value={input}
         onValueChange={(text) => {
           setInput(text);
