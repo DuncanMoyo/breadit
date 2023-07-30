@@ -141,7 +141,7 @@ const Editor = ({ subredditId }: Props) => {
         title,
         content,
       };
-      const { data } = axios.post("/api/subreddit/post/create", payload);
+      const { data } = await axios.post("/api/subreddit/post/create", payload);
       return data;
     },
     onError: () => {
